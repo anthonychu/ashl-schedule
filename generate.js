@@ -44,9 +44,9 @@ async function getIcalString(gameIds) {
 function processIcalString(icalString) {
   // add a name to the calendar
   if (/X-WR-CALNAME/.test(icalString)) {
-    icalString = icalString.replace(/X-WR-CALNAME.*\n/, 'X-WR-CALNAME:BCJ ASHL Winter \n');
+    icalString = icalString.replace(/X-WR-CALNAME.*\n/, `X-WR-CALNAME:${calendarTitle}\n`);
   } else {
-    icalString = icalString.replace(/BEGIN:VCALENDAR/, 'BEGIN:VCALENDAR\nX-WR-CALNAME:BCJ ASHL Schedule');
+    icalString = icalString.replace(/BEGIN:VCALENDAR/, `BEGIN:VCALENDAR\nX-WR-CALNAME:${calendarTitle}`);
   }
 
   // change the duration to 75 minutes
@@ -59,7 +59,7 @@ function processIcalString(icalString) {
 
 async function generateFiles(icalString) {
   await fs.mkdir('dist', { recursive: true });
-  await fs.writeFile('dist/schedule-winter-2022-2023.ics', icalString);
+  await fs.writeFile('dist/winter-2022-2023.ics', icalString);
   await fs.writeFile('dist/index.html', `<!DOCTYPE html><html><head><meta charset="utf-8"><title>🏒</title></head><body><h1>🏒</h1></body></html>`);
 }
 
