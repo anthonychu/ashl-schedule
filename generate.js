@@ -59,7 +59,7 @@ function processIcalString(icalString) {
 
 async function generateFiles(icalString) {
   await fs.mkdir('dist', { recursive: true });
-  await fs.writeFile('dist/winter-2022-2023/bcj.ics', icalString);
+  await fs.writeFile('dist/winter-2022-2023-bcj.ics', icalString);
   await fs.writeFile('dist/index.html', `<!DOCTYPE html><html><head><meta charset="utf-8"><title>🏒</title></head><body><h1>🏒</h1></body></html>`);
 }
 
