@@ -21,7 +21,7 @@ async function getApiKey() {
 }
 
 async function getSchedule(apiKey) {
-  const response = await fetch(`https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=schedule&team=20632&season=247&month=-1&location=homeaway&key=${apiKey}&client_code=c-burnaby&site_id=0&league_id=14&division_id=816&lang=en&callback=angular.callbacks._3`);
+  const response = await fetch(`https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=schedule&team=20632&season=247&month=-1&location=homeaway&key=${apiKey}&client_code=c-burnaby&site_id=0&league_id=14&division_id=654&lang=en&callback=angular.callbacks._3`);
   const data = await response.text();
   const schedule = JSON.parse(data.match(/\((.*)\)/)[1]);
   console.log(`Schedule: ${JSON.stringify(schedule, null, 2)}`);
